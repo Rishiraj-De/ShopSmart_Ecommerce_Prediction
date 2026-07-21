@@ -1,128 +1,120 @@
-# 🛒 Shop Smart - E-Commerce Purchase Prediction
-
 <div align="center">
 
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white)
-![Matplotlib](https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge)
-![Seaborn](https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge)
-
+# 🛒 Shop Smart
 ### Predicting Online Customer Purchase Intent using Machine Learning
+
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
+<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
+<img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikitlearn&logoColor=white"/>
+<img src="https://img.shields.io/badge/Matplotlib-11557c?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Seaborn-4C72B0?style=for-the-badge"/>
+
+*A machine learning pipeline for predicting customer purchase behavior from online shopping session data.*
 
 </div>
 
 ---
 
-# 📖 Overview
+## 🚀 Overview
 
-**Shop Smart** is a Machine Learning project that predicts whether an online visitor is likely to complete a purchase based on their browsing behavior during a website session.
+Understanding whether a customer is likely to make a purchase is one of the most valuable predictive tasks in e-commerce.
 
-The project applies **Exploratory Data Analysis (EDA)**, **Feature Engineering**, **Data Preprocessing**, and **Machine Learning Classification** techniques to analyze customer interactions and predict purchase intent.
+This project develops an end-to-end Machine Learning pipeline that analyzes customer browsing sessions and predicts purchase intent using behavioral analytics, feature engineering, and supervised learning models.
 
-The goal is to help e-commerce businesses identify potential buyers, improve marketing campaigns, increase conversion rates, and understand customer behavior.
+The workflow includes data preprocessing, exploratory data analysis, feature engineering, model training, hyperparameter tuning, and performance evaluation.
 
 ---
 
-# 🎯 Objectives
+## ✨ Features
 
-- Analyze customer browsing behavior.
-- Explore important features affecting purchases.
-- Perform data visualization using EDA.
-- Engineer meaningful features from raw data.
-- Train Machine Learning models for purchase prediction.
-- Compare model performance using classification metrics.
+- 📊 Comprehensive Exploratory Data Analysis
+- 📈 Customer Behaviour Analysis
+- ⚙️ Feature Engineering
+- 🧹 Data Cleaning & Preprocessing
+- 🌲 Decision Tree Classifier
+- 🌳 Random Forest Classifier
+- 🎯 Hyperparameter Tuning
+- 📉 Confusion Matrix Visualization
+- 📌 Classification Metrics
+- 📊 Correlation & Pairplot Analysis
 
 ---
 
 # 📂 Dataset
 
-The project uses the **Online Shoppers Purchasing Intention Dataset**.
-
-### Dataset Summary
+**Dataset:** Online Shoppers Purchasing Intention Dataset
 
 | Property | Value |
-|----------|--------|
-| Total Records | 12,330 |
+|-----------|-------|
+| Samples | 12,330 |
 | Original Features | 18 |
 | Engineered Features | 4 |
-| Final Features | 22 |
-| Target Variable | Revenue |
+| Target | Revenue |
 
-### Important Features
+The dataset contains user browsing behavior including:
 
-- Administrative Pages
-- Administrative Duration
-- Informational Pages
-- Informational Duration
-- Product Related Pages
-- Product Related Duration
-- Bounce Rates
-- Exit Rates
+- Administrative Activity
+- Product Related Activity
 - Page Values
-- Special Day
-- Month
-- Operating System
-- Browser
-- Region
-- Traffic Type
+- Bounce Rate
+- Exit Rate
+- Traffic Source
 - Visitor Type
-- Weekend
-- Revenue (Target)
+- Weekend Activity
+- Region
+- Browser Information
 
 ---
 
-# 🧠 Project Workflow
+# 🏗️ Project Architecture
 
-```
-Dataset
-    │
-    ▼
-Data Inspection
-    │
-    ▼
-Missing Value Analysis
-    │
-    ▼
+```text
+Raw Dataset
+      │
+      ▼
+Data Cleaning
+      │
+      ▼
 Exploratory Data Analysis
-    │
-    ▼
+      │
+      ▼
 Feature Engineering
-    │
-    ▼
-Label Encoding
-    │
-    ▼
-Train-Test Split
-    │
-    ▼
-Model Training
-    │
-    ▼
-Hyperparameter Tuning
-    │
-    ▼
-Model Evaluation
+      │
+      ▼
+Categorical Encoding
+      │
+      ▼
+Train/Test Split
+      │
+      ▼
+Decision Tree
+      │
+      ├─────────────┐
+      ▼             ▼
+Hyperparameter   Random Forest
+   Tuning             │
+      │               │
+      └──────┬────────┘
+             ▼
+ Performance Evaluation
 ```
 
 ---
 
 # 📊 Exploratory Data Analysis
 
-Several visualizations were created to better understand the dataset.
+The project includes multiple visualization techniques to better understand customer behavior.
 
-## Univariate Analysis
+### Distribution Analysis
 
 - Revenue Distribution
-- Monthly Distribution
 - Visitor Type Distribution
+- Monthly Distribution
 - Traffic Type Distribution
 
 ---
 
-## Distribution Analysis
-
-Histogram plots were created for:
+### Numerical Feature Analysis
 
 - Product Related Duration
 - Page Values
@@ -131,156 +123,84 @@ Histogram plots were created for:
 
 ---
 
-## Outlier Detection
+### Outlier Detection
 
-Boxplots were used to identify outliers in:
-
-- Product Related Duration
-- Product Related Pages
-- Administrative Duration
-- Page Values
+- Boxplots
+- Distribution Curves
 
 ---
 
-## Bivariate Analysis
-
-Relationship between Revenue and:
-
-- Visitor Type
-- Month
-- Weekend
-- Traffic Type
-
----
-
-## Correlation Analysis
-
-The project includes
+### Relationship Analysis
 
 - Correlation Heatmap
-- Pair Plot
-
-to understand feature relationships.
-
----
-
-# ⚙️ Feature Engineering
-
-Four new features were created to improve prediction performance.
-
-### 1. Total Duration
-
-```python
-Administrative Duration
-+ Informational Duration
-+ Product Related Duration
-```
+- Pairplot
+- Bivariate Analysis
 
 ---
 
-### 2. Total Pages
+# ⚡ Feature Engineering
 
-```python
-Administrative
-+ Informational
-+ Product Related
-```
+Instead of relying solely on the original dataset, additional features were engineered to capture customer engagement.
 
----
-
-### 3. Average Product Page Time
-
-```python
-ProductRelatedDuration
-/
-(ProductRelated + 1)
-```
-
----
-
-### 4. Engagement Score
-
-```python
-Total Pages × Total Duration
-```
-
-These engineered features provide better insight into customer engagement during browsing sessions.
-
----
-
-# 🔄 Data Preprocessing
-
-The following preprocessing steps were performed:
-
-- Checked for missing values
-- Label Encoding of categorical variables
-- Feature Engineering
-- Train-Test Split (80:20)
+| Feature | Description |
+|----------|-------------|
+| Total Duration | Total browsing time |
+| Total Pages | Total pages visited |
+| Avg Product Page | Average time per product page |
+| Engagement Score | Browsing intensity score |
 
 ---
 
 # 🤖 Machine Learning Models
 
-The following classification models were implemented:
+## Decision Tree
 
-## Decision Tree Classifier
+- Baseline classifier
+- Hyperparameter tuning
+- Pre-pruning
 
-- Baseline Model
-- Hyperparameter tuning performed
+Optimized using:
 
-Parameters tuned:
-
-- max_depth
-- min_samples_split
-- min_samples_leaf
-
----
-
-## Random Forest Classifier
-
-Random Forest was trained and evaluated to compare its performance with the Decision Tree model.
+- `max_depth`
+- `min_samples_split`
+- `min_samples_leaf`
 
 ---
 
-# 📈 Model Evaluation
+## Random Forest
 
-The models were evaluated using:
+Used as an ensemble learning model to compare performance against the optimized Decision Tree.
 
-- Accuracy Score
-- Precision Score
-- Recall Score
+---
+
+# 📈 Evaluation Metrics
+
+Model performance was evaluated using
+
+- Accuracy
+- Precision
+- Recall
 - F1 Score
 - Confusion Matrix
 
-These metrics provide a comprehensive understanding of classification performance.
+---
+
+# 🛠 Tech Stack
+
+| Category | Technologies |
+|----------|--------------|
+| Language | Python |
+| Data Analysis | Pandas, NumPy |
+| Visualization | Matplotlib, Seaborn |
+| Machine Learning | Scikit-Learn |
+| Development | Jupyter Notebook |
 
 ---
 
-# 🛠️ Technologies Used
+# 📁 Directory Structure
 
-## Programming Language
-
-- Python
-
-## Libraries
-
-- Pandas
-- NumPy
-- Matplotlib
-- Seaborn
-- Scikit-Learn
-
-## Machine Learning
-
-- Decision Tree Classifier
-- Random Forest Classifier
-
----
-
-# 📁 Project Structure
-
-```
-Shop-Smart-Ecommerce/
+```text
+Shop-Smart/
 │
 ├── data/
 │   └── shop_smart_ecommerce.csv
@@ -289,132 +209,37 @@ Shop-Smart-Ecommerce/
 │   └── Shop_Smart_Ecommerce.ipynb
 │
 ├── images/
-│   ├── univariate_analysis.png
-│   ├── histogram_analysis.png
-│   ├── boxplots.png
-│   ├── heatmap.png
-│   ├── pairplot.png
-│   └── confusion_matrix.png
+│
+├── requirements.txt
 │
 ├── README.md
-├── requirements.txt
+│
 └── LICENSE
 ```
 
 ---
 
-# 🚀 Installation
 
-Clone the repository
+# 📌 Future Work
 
-```bash
-git clone https://github.com/yourusername/Shop-Smart-Ecommerce.git
-```
-
-Move into the project directory
-
-```bash
-cd Shop-Smart-Ecommerce
-```
-
-Install the required libraries
-
-```bash
-pip install -r requirements.txt
-```
-
-Launch Jupyter Notebook
-
-```bash
-jupyter notebook
-```
-
-Run
-
-```
-Shop_Smart_Ecommerce.ipynb
-```
+- Cross Validation
+- GridSearchCV
+- Feature Importance Analysis
+- SHAP Explainability
+- Streamlit Dashboard
+- Flask Deployment
+- Docker Containerization
 
 ---
 
-# 📋 Requirements
+# 💡 Potential Applications
 
-```
-pandas
-numpy
-matplotlib
-seaborn
-scikit-learn
-jupyter
-```
-
-or install manually
-
-```bash
-pip install pandas numpy matplotlib seaborn scikit-learn notebook
-```
-
----
-
-# 📊 Results
-
-The project successfully predicts customer purchase intent using browsing behavior and engineered features.
-
-Key achievements include:
-
-- Comprehensive Exploratory Data Analysis
-- Effective Feature Engineering
-- Customer Behavior Analysis
-- Decision Tree Hyperparameter Optimization
-- Performance Comparison with Random Forest
-- Evaluation using multiple classification metrics
-
----
-
-# 💼 Real-World Applications
-
-This project can be used for:
-
-- Customer Purchase Prediction
-- Targeted Marketing
-- Personalized Recommendations
+- Purchase Prediction
+- Recommendation Systems
 - Customer Segmentation
-- Conversion Rate Optimization
-- E-commerce Analytics
-- Business Intelligence
+- Marketing Analytics
 - Sales Forecasting
-
----
-
-# 🔮 Future Improvements
-
-- Implement Gradient Boosting algorithms
-- Perform GridSearchCV optimization
-- Apply Cross Validation
-- Build a Streamlit Web Application
-- Deploy the model using Flask or FastAPI
-- Add SHAP Explainability
-- Build an interactive dashboard using Power BI
-
----
-
-# 🤝 Contributing
-
-Contributions are welcome!
-
-If you'd like to improve this project:
-
-1. Fork the repository.
-2. Create a new feature branch.
-3. Commit your changes.
-4. Push to your branch.
-5. Submit a Pull Request.
-
----
-
-# 📜 License
-
-This project is licensed under the MIT License.
+- Conversion Rate Optimization
 
 ---
 
@@ -424,20 +249,12 @@ This project is licensed under the MIT License.
 
 Computer Science Engineering Student
 
-**Areas of Interest**
-
-- Artificial Intelligence
-- Machine Learning
-- Data Science
-- Computer Vision
-- Full Stack Development
+> Passionate about Machine Learning, Data Science, and Building Intelligent Systems.
 
 ---
 
 <div align="center">
 
-### ⭐ If you found this project helpful, don't forget to star the repository!
-
-**Happy Coding! 🚀**
+⭐ **If you found this repository useful, consider starring it!**
 
 </div>
